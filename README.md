@@ -32,12 +32,12 @@ Essa é a 16ª edição do **Next Level Week**, uma semana de aulas com muito c�
 
 ### Participe do NLW se você quer
 
-|  |  |  |  |
+| 01 | 02 | 03 | 04 |
 |----|----|----|----|
 | Iniciar seus estudos e sua carreira em programação |  Ampliar o seu portfólio com um novo projeto |  Explorar uma nova tecnologia na prática |  Se atualizar e descobrir novas ferramentas |
 
 
-### VAMOS DESENVOLVER DO ZERO UM PLANEJADOR DE VIAGEM
+### Vamos desenvolver do um planejador de viagem 
 <p align="center">
   <img src="./.github/project-image.webp" alt="preview"/>
 </p>
