@@ -16,3 +16,6 @@ migrate:
 
 migrate-new:
 	tern new --migrations ./internal/pgstore/migrations/ $(name)
+
+sqlc:
+	sqlc generate -f ./internal/pgstore/sqlc.yaml

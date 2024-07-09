@@ -1,6 +1,6 @@
 version: "2"
 sql:
- -  engine: "postgresql"
+  - engine: "postgresql"
     queries: "./queries"
     schema: "./migrations"
     gen:
@@ -9,7 +9,7 @@ sql:
         package: "pgstore"
         sql_package: "pgx/v5"
         overrides:
-          - db_types: "uuid"
-            go_type: 
+          - db_type: "uuid"
+            go_type:
               import: "github.com/google/uuid"
               type: "UUID"
