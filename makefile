@@ -11,6 +11,9 @@ docker-restart: stop start
 docker-clean:
 	docker-compose -p ${STACK_NAME} down -v
 
+api-gen:
+	goapi-gen --out ./internal/api/spec/journey.spec.gen.go ./internal/api/spec/journey.spec.json
+
 migrate:
 	tern migrate --migrations ./internal/pgstore/migrations/ --config ./internal/pgstore/migrations/tern.conf 
 

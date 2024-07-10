@@ -13,6 +13,7 @@ import (
 
 	"github.com/brunobach/nlw-journey/internal/api"
 	"github.com/brunobach/nlw-journey/internal/api/spec"
+	"github.com/brunobach/nlw-journey/internal/mailer/mailpit"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/chi/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -72,7 +73,11 @@ func run(ctx context.Context) error {
 	r := chi.NewMux()
 	r.Use(middleware.RequestID, middleware.Recoverer, httputils.ChiLogger(logger))
 
-	si := api.NewAPI(pool, logger)
+	si := api.NewApi(
+		pool,
+		logger,
+		mailpit.NewMailPit(pool),
+	)
 
 	r.Mount("/", spec.Handler(&si))
 
