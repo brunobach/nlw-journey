@@ -16,6 +16,7 @@ import (
 	"github.com/brunobach/nlw-journey/internal/mailer/mailpit"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/cors"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
 	"github.com/phenpessoa/gutils/netutils/httputils"
@@ -71,6 +72,10 @@ func run(ctx context.Context) error {
 	}
 
 	r := chi.NewMux()
+
+	r.Use(cors.Handler(cors.Options{
+		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+	}))
 	r.Use(middleware.RequestID, middleware.Recoverer, httputils.ChiLogger(logger))
 
 	si := api.NewApi(

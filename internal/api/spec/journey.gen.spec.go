@@ -25,7 +25,7 @@ import (
 
 // CreateActivityRequest defines model for CreateActivityRequest.
 type CreateActivityRequest struct {
-	OccursAt time.Time `json:"occurs_at" validate:"required"`
+	OccursAt string `json:"occurs_at" validate:"required"`
 	Title    string    `json:"title" validate:"required"`
 }
 
