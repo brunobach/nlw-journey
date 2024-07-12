@@ -5,23 +5,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: journey_password
-      POSTGRES_DB: journey
+      POSTGRES_USER: "${JOURNEY_DATABASE_USER}"
+      POSTGRES_PASSWORD: "${JOURNEY_DATABASE_PASSWORD}"
+      POSTGRES_DB: "${JOURNEY_DATABASE_NAME}"
     volumes:
       - db:/var/lib/postgresql/data
-  # app:
-  #     build: .
-  #     ports:
-  #       - 8080:8080
-  #     environment:
-  #       JOURNEY_DATABASE_NAME: ${JOURNEY_DATABASE_NAME}
-  #       JOURNEY_DATABASE_USER: ${JOURNEY_DATABASE_USER}
-  #       JOURNEY_DATABASE_PASSWORD: ${JOURNEY_DATABASE_PASSWORD}
-  #       JOURNEY_DATABASE_PORT: ${JOURNEY_DATABASE_PORT:-5432}
-  #       JOURNEY_DATABASE_HOST: ${JOURNEY_DATABASE_HOST_DOCKER:-db}
-  #     depends_on:
-  #       - db
+
+
   mailpit:
     image: axllent/mailpit:latest
     restart: unless-stopped

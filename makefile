@@ -1,7 +1,7 @@
 STACK_NAME=dev-journey
 
 docker-start:
-	docker-compose -p ${STACK_NAME} up -d --remove-orphans
+	docker-compose -p ${STACK_NAME} --env-file .env up -d --remove-orphans
 
 docker-stop:
 	docker-compose -p ${STACK_NAME} stop
